@@ -1,21 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="5d89874b-cf24-4f4b-9277-74fd21a92f0b" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Readme.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bangding.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ifelse.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/img/a.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/img/b.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/img/tu.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/key_computed.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/main.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/many_shili.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/small_demo.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vue.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/zujian.html" afterDir="false" />
-    </list>
+    <list default="true" id="5d89874b-cf24-4f4b-9277-74fd21a92f0b" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
