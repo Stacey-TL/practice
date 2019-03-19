@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>指令if和for</title>
+		<style type="text/css">
+		
+		</style>
+		<script type="text/javascript" src="https://unpkg.com/vue"></script>
+	</head>
+	<body>
+		<!-- 指令if -->
+		<div id="app">
+			<button @click="error=!error">Toggle error</button>
+			
+			<button @click="success=!success">Toggle success</button>
+
+			<p v-if="error">网络链接错误{{error}}</p>
+			<p v-else-if="success">网络链接成功{{success}}</p>	
+			<p v-show="error">显示么{{error}}</p>
+			<hr />
+			<!-- 指令for 循环 可以用列表渲染template-->	
+			<template v-for="item in items">
+				{{item}}
+			</template>
+			<template v-for="(item,key) in items">
+				{{item}}--{{key}}
+			</template>
+			<hr />
+			<template v-for="(arry,index) in arrays">
+				{{index}}--{{arry.username}}---{{arry.age}}
+				<div v-for="(val,index) in array">
+					<p>{{index}}---{{val}}</p>
+				</div><!--遍历arry对象-->
+			</template>
+		</div>
+		<!-- 指令if  ending-->
+		<script type="text/javascript">
+			new Vue({
+				el: "#app",
+				data: {
+					error:false,
+					success:false,
+					items:["赵丽颖","杨幂","迪丽热巴"],
+					arrays:[
+						{username:"赵丽颖",
+						age:28},
+						{username:"谢娜",
+						age:30},
+						{username:"欧阳娜娜",
+						age:20}
+					]
+				},
+			})
+		</script>
+
+	</body>
+</html>

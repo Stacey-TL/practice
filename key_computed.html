@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>key,computed:键盘事件和计算属性</title>
+		<script type="text/javascript" src="https://unpkg.com/vue"></script>
+	</head>
+	<body>
+		<div id="vue-app">
+			<!-- 键盘事件修饰符 -->
+			<!-- enter回车键触发 -->
+			姓名回车：<input type="" name="" id="" value="" v-on:keyup.enter="logName" />
+			<!-- alt+enter键触发 -->
+			姓名alt+回车<input type="" name="" id="" value="" v-on:keyup.alt.enter="logName" />
+	<br/>
+			<!-- 普通计算-->
+			<!--方法一  点击A或者B任意按钮，两个方法都会执行,也就是a的值改变了就调用？-->
+	<!-- 		<button type="button" @click="a++">Add to A</button>
+			<button type="button" @click="b++">Add to B</button>
+			<p>A:{{a}}=========B:{{b}}</p>
+			<p>Age+A={{addToAA()}} </p>
+			<p>Age+B={{addToBB()}}</p> -->
+			<!--方法二 计算属性：computed ，一般耗时，使用大量搜索时用这个计算属性-->
+			<button type="button" @click="a++">Add to A</button>
+			<button type="button" @click="b++">Add to B</button>
+			<p>A:{{a}}=========B:{{b}}</p>
+			<!--用计算属性就不能用括号了-->
+			<p>Age+A={{addToA}} </p>
+			<p>Age+B={{addToB}}</p>
+		</div>
+		<script type="text/javascript">
+			new Vue({
+				el: "#vue-app",
+				data: {
+					name: '之华',
+					age:'20',
+					a: 0,
+					b: 0
+				},
+				methods: {//methods里的方法一旦被触发就会都执行methods里所有方法？？这样很耗费性能,
+				// 所以这时要用computed计算属性,
+					logName: function() {
+						console.log("正在输入名字")
+					},
+					// 计算,方法一
+					addToAA: function() {
+						console.log("Add to A")
+						// return this.age+1;
+						return this.a;
+					},
+					addToBB: function() {
+						console.log("Add to B")
+						return this.b;
+						// return "bbb";
+					}
+				},
+				// 真正dom有不同时才会触发里面的这个方法;耗时和大量搜索时可以用计算属性,当前的变化幅度大时，比如搜索时，因为每次搜索内容时进行的匹配,
+				// vue中使用的是虚拟dom,把真是dom拷贝,比较虚拟dom,不同时会触发方法,
+				computed:{
+					addToA: function() {
+						console.log("Add to A")
+						return this.a+this.age;
+					},
+					addToB: function() {
+						console.log("Add to B")
+						return this.b+this.age;
+					}
+				}
+			})
+		</script>
+	</body>
+</html>

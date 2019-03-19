@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>组件</title>
+		<script type="text/javascript" src="https://unpkg.com/vue"></script>
+	</head>
+	<body>
+		<div id="app-one">
+			<greeting></greeting>
+		</div>
+		<div id="app-two">
+			<greeting></greeting>
+			
+		</div>
+	<script type="text/javascript">
+// 		var data={
+// 					name:'鹿晗'
+// 				}
+		// 组件
+		Vue.component("greeting",{
+			// 模板,多个标签时，要有一个跟标签包着其他标签
+			template:`<p>{{name}}:大家好,给大家介绍我的女朋友@关晓彤,
+				<button @click='changeName'>改名</button>
+			</p>`,
+			data:function(){
+				<!-- return data 这样调用两个标签里的name都会改变-->
+				return{
+						name:'鹿晗'
+				}
+			},
+			methods:{
+				changeName:function(){
+					this.name="Herry"
+				}
+			}
+		})
+		// 其他的在组件中实现
+		new Vue({
+			el:'#app-one'
+		});
+		new Vue({
+			el:'#app-two'			
+		})
+	</script>
+	</body>
+</html>

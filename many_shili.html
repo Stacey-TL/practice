@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>多个实例化对象</title>
+		<script type="text/javascript" src="https://unpkg.com/vue"></script>
+	</head>
+	<body>
+		<p>初始化多个Vue实例对象</p>
+		<div id="app-one">
+			<h2>{{title}}</h2>
+			<p>{{greet}}</p>
+		</div>
+		<div id="app-two">
+			<h2>{{title}}</h2>
+			<p>{{greet}}</p>
+			<button type="button" @click="changeTitle">改变第一个实例的title</button>
+		</div>
+	<script type="text/javascript">
+		var one=new Vue({
+			el:'#app-one',
+			data:{
+				title:"app1的内容",
+				ok:false
+			},
+			methods:{
+				
+			},
+			computed:{
+				greet:function(){
+					return "hello1"
+				},
+			}
+		});
+		var two=new Vue({
+			el:'#app-two',
+			data:{
+				title:"app2的内容",
+				ok:false
+			},
+			methods:{
+				// 在第二个实例里改变第一个实例里的title
+				changeTitle:function(){
+					one.title="改名啦"
+				}
+			},
+			computed:{
+				greet:function(){
+					return "hello2"
+				},
+			}
+		})
+		two.title="加载时two的title也变化了"
+	</script>
+	</body>
+</html>

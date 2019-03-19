@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>双向数据绑定和动态绑定CSS样式</title>
+		<style type="text/css">
+			#style span {
+				background: red;
+				display: inline-block;
+				padding: 10px;
+				margin: 10px 0;
+			}
+
+			#style .changeColor span {
+				background: green;
+			}
+
+			.changeLength span:after {
+				content: "length";
+				margin-left: 10px;
+			}
+
+			.red {
+				color: red;
+			}
+
+			.blue {
+				color: blue;
+			}
+		</style>
+		<script type="text/javascript" src="https://unpkg.com/vue"></script>
+	</head>
+	<body>
+		<!-- 双向绑定数据 start-->
+		<div id="app">
+			<!-- <p> v-model 双向数据绑定一定是和输入输出有关, 输入：/input/select/textarea </p>	
+			<!-- 方式一 -->
+			<!-- ref 在vue2.0可以给input标签标记，$refs调用 -->
+			<!-- 姓名：<input type="text" ref="name" v-on:keyup="logName" />
+			<p>输出：{{name}}</p>
+			方式二 v-model指令-，双向数据绑定，把属性的值绑定到这里，这里的变化会影响属性值，用这个会给赋值，上面keyup不hi赋值->
+			年龄：<input type="text" ref="name" v-model="age" />
+			<p>输出：{{age}}</p> -->
+		</div>
+		<!-- 双向绑定数据ending-->
+		<script type="text/javascript">
+			// 			new Vue({
+			// 				el: "#app",
+			// 				data: {
+			// 					name:'之华',
+			// 					age:32,
+			// 				},
+			// 				methods: {
+			// 					logName: function() {
+			// 					this.name=this.$refs.name.value;
+			// 					},
+			// 				}
+			// 			})
+		</script>
+
+		<!--  动态绑定CSS样式 start-->
+		<div id="style">
+			<h1>动态 CSS Class</h1>
+			<h2>实例1</h2>
+			<!-- <div v-bind:class="{red:true,blue:false}"></div>
+			<div  v-on:click="changeColor=!changeColor">点击改变颜色</div>
+			<div v-bind:class="{changeColor:changeColor}">
+				<span >Herry</span>
+			</div> -->
+
+
+			<h2>实例2，点击一个按钮时更改当前元素的样式</h2>
+			<button @click="changeColor=!changeColor">change color</button>
+			<button @click="changeLength=!changeLength">change length</button>
+			<div v-bind:class="comClasses">
+				<span>Stacey</span>
+			</div>
+		</div>
+		<!-- 动态绑定CSS样式ending -->
+		<script type="text/javascript">
+			new Vue({
+				el: "#style",
+				data: {
+					changeColor: false,
+					changeLength: false
+				},
+				methods: {
+
+				},
+				computed: {
+					comClasses: function() {
+						console.log(this.changeColor+"=="+this.changeLength+"--")
+						return{
+							changeColor:this.changeColor,changeLength:this.changeLength
+						}
+						
+					}
+				}
+			})
+		</script>
+	</body>
+</html>

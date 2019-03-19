@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>小demo</title>
+		<script type="text/javascript" src="https://unpkg.com/vue"></script>
+		<style type="text/css">
+			#app{width: 500px;}
+		#bag{width: 400px;height: 200px; background: url(img/a.jpg) no-repeat;	margin: 0 auto;
+		background-size: 100%;
+		}
+		#bag-health{width: 200px;border: 2px solid salmon;
+		 margin: 0 auto 20px auto;
+		}
+		#bag-health div{height: 20px;background: blanchedalmond;}
+		#controls{width: 200px; margin: 0 auto; text-align: center;	}
+		#bag.burst{background-image: url(img/b.jpg);}
+		</style>
+		
+	</head>
+	<body>
+		<div id="app">
+			<!-- 图片 -->
+			<div id="bag" v-bind:class="{burst:ok}"></div>
+			<!-- 进度条状况 -->
+			<div id="bag-health">
+				<div v-bind:style="{width:health+'%'}"></div>
+			</div>
+			<!-- 控制按钮 -->
+			<div id="controls">
+				<button type="button" @click="punch"  v-show="!ok">使劲敲</button>
+				<button @click="restart">重新开始</button>
+			</div>
+			
+			<p>进度条百分比:{{ok}}%</p>
+		</div>
+		<script type="text/javascript">
+				new Vue({
+					el:'#app',
+					data:{
+						health:100,
+						ok:false
+					},
+					methods:{
+						punch:function(){
+							this.health-=10
+							if(this.health<=0){
+								this.ok=true;
+								
+							}
+						},restart:function(){
+							this.health=100;
+							this.ok=false;
+						}
+					},
+					computed:{
+						
+					}
+				})
+		</script>
+	</body>
+</html>
