@@ -12,3 +12,5 @@ git config --global user.email '2502421591@qq.com'
 3.git status查看是否有添加修改的状态
 4.git commit提交到本地仓库中
 5.git push把本地仓库的数据pull(推送)到远程仓库中
+
+分支里多了个fenzhi1.html，分支
